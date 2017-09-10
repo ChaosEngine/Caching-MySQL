@@ -31,8 +31,8 @@ namespace Pomelo.Extensions.Caching.MySql
 		public DatabaseOperations(
 			string readConnectionString, string writeConnectionString, string schemaName, string tableName, ISystemClock systemClock)
 		{
-		    ReadConnectionString = readConnectionString;
-            WriteConnectionString = writeConnectionString;
+			ReadConnectionString = readConnectionString;
+			WriteConnectionString = writeConnectionString;
 			SchemaName = schemaName;
 			TableName = tableName;
 			SystemClock = systemClock;
@@ -236,7 +236,7 @@ namespace Pomelo.Extensions.Caching.MySql
 			//TimeSpan? slidingExpiration = null;
 			//DateTimeOffset? absoluteExpiration = null;
 			//DateTimeOffset expirationTime;
-			using (var connection = new MySqlConnection(ReadConnectionString))
+			using (var connection = new MySqlConnection(WriteConnectionString))
 			{
 				using (var command = new MySqlCommand(query, connection))
 				{
@@ -301,7 +301,7 @@ namespace Pomelo.Extensions.Caching.MySql
 			//TimeSpan? slidingExpiration = null;
 			//DateTime? absoluteExpiration = null;
 			//DateTime expirationTime;
-			using (var connection = new MySqlConnection(ReadConnectionString))
+			using (var connection = new MySqlConnection(WriteConnectionString))
 			{
 				using (var command = new MySqlCommand(query, connection))
 				{
